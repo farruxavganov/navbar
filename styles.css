@@ -125,7 +125,7 @@ header {
         align-items: flex-start;
         opacity: 1;
         width: 100%;
-        height: auto;
+        height: 200px;
     }
     .navbar__lists:last-child {
         display: none;
