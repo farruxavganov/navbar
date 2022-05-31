@@ -11,9 +11,6 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     min-height: 100vh;
     background: #f1f5f8;
@@ -34,11 +31,7 @@ button {
     outline: 0;
     background: transparent;
 }
-.show {
-    margin-top: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
-}
+
 header {
     position: fixed;
     top: 0;
@@ -69,18 +62,27 @@ header {
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 0;
+    width: 100%;
+}
+.navbar__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
 }
 .navbar__logo-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 35%;
 }
+
 .navbar__logo {
     font-size: 25px;
     color: #333;
 }
+
 .navbar__logo span {
     color: dodgerblue;
 }
@@ -112,37 +114,49 @@ header {
     .navbar {
         flex-direction: column;
     }
-    .navbar__logo-box {
-        width: 100%;
-    }
     .navbar__bars {
         display: block;
     }
+    .navbar__logo-box, .navbar__wrapper {
+        width: 100%;
+    }
+    .navbar__wrapper {
+        transition: all .3s ease-out, max-height .3s linear;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0;
+        flex-direction: column;
+    }
     .navbar__lists {
-        margin-top: 15px;
+        width: 100%;
+    }
+    .navbar__lists:first-child {
         flex-direction: column;
         align-items: flex-start;
-        opacity: 1;
-        width: 100%;
-        height: auto;
     }
     .navbar__lists:last-child {
-        display: none;
+        margin-top: 10px;
+        justify-content: center;
     }
-    .navbar__list {
-        width: 100%;
+    .navbar__lists:first-child .navbar__list {
+        transition: all .5s ease;
         margin: 0;
-    }
-    .navbar__link {
-        display: inline-block;
+        padding: 10px 0;
         width: 100%;
-        padding: 12px;
     }
-    .navbar__list:hover {
-        background-color: rgba(96,170,237,0.41);
-        
+    .navbar__lists:first-child .navbar__list:hover {
+        background-color: dodgerblue;
     }
-    .navbar__list:hover .navbar__link {
-        margin-left: 5px;
+    .navbar__lists:first-child .navbar__list:hover .navbar__link {
+        color: #fff;
+        margin-left: 10px;
     }
+    
+    .show {
+        margin-top: 15px;
+        visibility: visible;
+        opacity: 1;
+        max-height: 500px;
+    }
+    
 }
